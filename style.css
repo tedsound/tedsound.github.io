@@ -365,3 +365,22 @@ footer {
 @media (max-width: 768px) {
     .email-link { font-size: 1.8rem; }
 }
+/* 모바일 화면(폭 768px 이하)일 때 적용되는 스타일 */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* 로고와 메뉴를 세로로 배치 */
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* 메뉴 버튼들을 세로로 정렬 */
+        gap: 15px; /* 버튼 사이 간격 벌리기 */
+        margin-top: 20px; /* 로고와 메뉴 사이 간격 */
+        text-align: center; /* 글자 가운데 정렬 */
+        width: 100%; /* 너비 꽉 채우기 */
+    }
+
+    .nav-links li {
+        margin-left: 0; /* 기존 여백 초기화 */
+    }
+}
