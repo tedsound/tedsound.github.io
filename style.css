@@ -378,7 +378,7 @@ footer {
         display: flex !important;
         flex-direction: row !important; /* 메뉴를 가로로 나열 */
         justify-content: center !important; /* 가운데 정렬 */
-        gap: 30px !important; /* 메뉴 사이 간격을 30px로 넓힘 (숫자 조절 가능) */
+        gap: 50px !important; /* 메뉴 사이 간격을 30px로 넓힘 (숫자 조절 가능) */
         flex-wrap: wrap !important; /* 화면이 좁으면 자동으로 줄바꿈 */
         width: 100% !important;
         margin-top: 20px !important;
@@ -401,3 +401,4 @@ footer {
         margin: 0 auto; /* 중앙 배치 */
     }
 }
+
