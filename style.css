@@ -398,7 +398,7 @@ footer {
         margin-top: 15px;       /* 로고와 메뉴 사이 띄우기 */
         justify-content: center; /* 메뉴 가운데 정렬 */
         width: 100%;            /* 너비 꽉 채우기 */
-        gap: 20px;              /* 메뉴 글자끼리 간격 넓히기 */
+        gap: 40px;              /* 메뉴 글자끼리 간격 넓히기 */
         padding: 0;             /* 불필요한 여백 제거 */
     }
 
@@ -418,3 +418,4 @@ footer {
         margin: 0 auto; /* 중앙 배치 */
     }
 }
+
