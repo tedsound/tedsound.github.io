@@ -365,26 +365,6 @@ footer {
 @media (max-width: 768px) {
     .email-link { font-size: 1.8rem; }
 }
-/* 모바일 화면(폭 768px 이하)일 때 적용되는 스타일 */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* 로고와 메뉴를 세로로 배치 */
-        padding: 20px;
-    }
-
-    .nav-links {
-        flex-direction: column; /* 메뉴 버튼들을 세로로 정렬 */
-        gap: 15px; /* 버튼 사이 간격 벌리기 */
-        margin-top: 20px; /* 로고와 메뉴 사이 간격 */
-        text-align: center; /* 글자 가운데 정렬 */
-        width: 100%; /* 너비 꽉 채우기 */
-    }
-
-    .nav-links li {
-        margin-left: 0; /* 기존 여백 초기화 */
-    }
-
-}
 /* 모바일 화면(폭 768px 이하)일 때 적용되는 디자인 */
 @media (max-width: 768px) {
     
@@ -395,11 +375,14 @@ footer {
     }
 
     .nav-links {
-        margin-top: 15px;       /* 로고와 메뉴 사이 띄우기 */
-        justify-content: center; /* 메뉴 가운데 정렬 */
-        width: 100%;            /* 너비 꽉 채우기 */
-        gap: 40px;              /* 메뉴 글자끼리 간격 넓히기 */
-        padding: 0;             /* 불필요한 여백 제거 */
+        display: flex !important;
+        flex-direction: row !important; /* 메뉴를 가로로 나열 */
+        justify-content: center !important; /* 가운데 정렬 */
+        gap: 30px !important; /* 메뉴 사이 간격을 30px로 넓힘 (숫자 조절 가능) */
+        flex-wrap: wrap !important; /* 화면이 좁으면 자동으로 줄바꿈 */
+        width: 100% !important;
+        margin-top: 20px !important;
+        padding: 0 20px !important; /* 화면 양옆에 여백 주기 */
     }
 
     /* 2. 하단 소셜 버튼 정리 (세로로 깔끔하게 쌓기) */
@@ -418,4 +401,3 @@ footer {
         margin: 0 auto; /* 중앙 배치 */
     }
 }
-
