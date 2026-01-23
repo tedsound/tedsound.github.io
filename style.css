@@ -1,0 +1,367 @@
+html {
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+}
+
+/* 1. 기본 설정 (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505; /* 배경: 아주 짙은 검정 */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: white; }
+
+/* 2. 네비게이션 바 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed; /* 상단 고정 */
+    width: 100%;
+    top: 0;
+    background: rgba(5, 5, 5, 0.8); /* 반투명 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 */
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: #888;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* 3. 히어로 섹션 (메인 화면) */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 중앙 정렬 */
+    padding: 0 50px;
+    position: relative;
+    overflow: hidden;
+    
+    /* (선택사항) 배경에 그라데이션을 넣고 싶으면 이 주석을 푸세요 */
+    /* background: radial-gradient(circle at top right, #2b2b2b, #000000); */
+}
+
+.content {
+    z-index: 2;
+    max-width: 800px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #4cd964; /* 포인트 컬러 (녹색) */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #fff, #666);
+    -webkit-background-clip: text;
+    background-clip: text;          /* ✨ 이 줄을 추가하세요! ✨ */
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;  /* 중앙 정렬을 위해 */
+    margin-right: auto; /* 중앙 정렬을 위해 */
+}
+
+/* 버튼 스타일 */
+.btn {
+    padding: 15px 40px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.3s;
+    display: inline-block; /* 링크 버튼 깨짐 방지 */
+}
+
+.btn:hover {
+    background-color: #4cd964;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* 모바일 반응형 (히어로) */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .hero-section { padding: 0 20px; }
+    nav { padding: 20px; }
+}
+
+/* 4. 포트폴리오 섹션 (Work) */
+.work-section {
+    padding: 100px 50px;
+    background-color: #050505;
+}
+
+.section-title {
+    margin-bottom: 60px;
+    border-left: 4px solid #4cd964;
+    padding-left: 20px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* 그리드 레이아웃 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 5. 카드 공통 스타일 (박스) */
+.card {
+    background-color: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative; /* 중요: 내부 요소 배치의 기준 */
+    transition: transform 0.3s ease;
+    min-height: 300px; /* Work 카드 기본 높이 */
+    border: 1px solid #222;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #4cd964;
+}
+
+/* 6. 사진 카드 스타일 (통일된 디자인) */
+.photo-card {
+    position: relative;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 사진 꽉 채우기 */
+    transition: 0.3s;
+}
+
+/* 사진 위를 덮는 검은 막 & 텍스트 */
+.photo-card .card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 배경 투명도 (숫자를 낮추면 사진이 더 밝아짐) */
+    background: rgba(0, 0, 0, 0.6); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    opacity: 1; /* 항상 보이게 설정 */
+    transition: 0.3s;
+    
+    /* 글씨 잘 보이게 그림자 */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); 
+}
+
+/* 마우스 올리면 사진 확대 효과 */
+.photo-card:hover img {
+    transform: scale(1.1);
+}
+
+/* 사진 카드 내부 텍스트 디자인 */
+.photo-card .category {
+    color: #4cd964;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.photo-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.photo-card .role {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+    font-style: italic;
+    text-shadow: none;
+}
+
+.photo-card .details {
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid #444; /* 구분선 */
+    padding-top: 15px;
+    margin-top: auto; 
+}
+
+/* 7. 텍스트 카드 스타일 (사진 없는 경우) */
+.text-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    background: #161616;
+}
+
+.text-card .category {
+    color: #4cd964;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.text-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.text-card .role {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.text-card .details {
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+/* 8. 장비(Gear) 섹션 스타일 */
+.gear-section {
+    padding: 100px 50px;
+    background-color: #0f0f0f; /* 약간 더 밝은 검정 */
+    border-top: 1px solid #222;
+}
+
+/* 장비 섹션의 카드만 키를 키움 */
+#gear .card {
+    min-height: 450px; 
+}
+
+/* 모바일 간격 조정 */
+@media (max-width: 768px) {
+    .work-section { padding: 80px 20px; }
+    .gear-section { padding: 80px 20px; }
+    .section-title h2 { font-size: 2rem; }
+}
+
+/* 9. 푸터 (연락처) */
+footer {
+    padding: 100px 20px;
+    background-color: #000;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.call-to-action {
+    color: #888;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.email-link {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #4cd964;
+    transition: 0.3s;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.email-link:hover {
+    color: #4cd964;
+    transform: scale(1.05);
+}
+
+.social-links {
+    margin-bottom: 50px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    color: #aaa;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .email-link { font-size: 1.8rem; }
+}
